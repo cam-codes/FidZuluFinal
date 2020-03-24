@@ -1,0 +1,26 @@
+<ng-container *ngIf="{
+  dvds: dvds$ | async,
+  team: team$ | async
+} as data;">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div *ngIf="!data.dvds; else dvds">
+          Loading dvds...
+        </div>
+        <ng-template #dvds>
+          <app-dvd *ngFor="let dvd of data.dvds" [dvd]="dvd"></app-dvd>
+          <div *ngIf="data.dvds.length === 0">No dvds found!</div>
+        </ng-template>
+      </div>
+      <div class="col-6">
+        <div *ngIf="!data.team; else team">
+          Loading team...
+        </div>
+        <ng-template #team>
+          <app-team [team]="team"></app-team>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>

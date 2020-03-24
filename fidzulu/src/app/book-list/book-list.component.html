@@ -1,0 +1,26 @@
+<ng-container *ngIf="{
+  books: books$ | async,
+  team: team$ | async
+} as data;">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div *ngIf="!data.books; else books">
+          Loading books...
+        </div>
+        <ng-template #books>
+          <app-book *ngFor="let book of data.books" [book]="book"></app-book>
+          <div *ngIf="data.books.length === 0">No books found!</div>
+        </ng-template>
+      </div>
+      <div class="col-6">
+        <div *ngIf="!data.team; else team">
+          Loading team...
+        </div>
+        <ng-template #team>
+          <app-team [team]="team"></app-team>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>

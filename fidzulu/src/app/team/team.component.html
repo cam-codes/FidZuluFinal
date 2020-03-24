@@ -1,0 +1,5 @@
+<ul class="list-group">
+  <li  class="list-group-item">
+    <p *ngFor="let key of Object.keys(team)" >{{key | titlecase}}: {{team[key]}}</p>
+  </li>
+</ul>

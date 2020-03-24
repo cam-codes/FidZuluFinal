@@ -1,0 +1,26 @@
+<ng-container *ngIf="{
+  bikes: bikes$ | async,
+  team: team$ | async
+} as data;">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div *ngIf="!data.bikes; else bikes">
+          Loading bikes...
+        </div>
+        <ng-template #bikes>
+          <app-bike *ngFor="let bike of data.bikes" [bike]="bike"></app-bike>
+          <div *ngIf="data.bikes.length === 0">No bikes found!</div>
+        </ng-template>
+      </div>
+      <div class="col-6">
+        <div *ngIf="!data.team; else team">
+          Loading team...
+        </div>
+        <ng-template #team>
+          <app-team [team]="team"></app-team>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,26 @@
+<ng-container *ngIf="{
+  laptops: laptops$ | async,
+  team: team$ | async
+} as data;">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div *ngIf="!data.laptops; else laptops">
+          Loading laptops...
+        </div>
+        <ng-template #laptops>
+          <app-laptop *ngFor="let laptop of data.laptops" [laptop]="laptop"></app-laptop>
+          <div *ngIf="data.laptops.length === 0">No laptops found!</div>
+        </ng-template>
+      </div>
+      <div class="col-6">
+        <div *ngIf="!data.team; else team">
+          Loading team...
+        </div>
+        <ng-template #team>
+          <app-team [team]="team"></app-team>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,9 @@
+.location{
+    background-color: #28a745;
+    border-color: #28a745;
+    margin-top: 10%;
+    color: hsla(210, 17%, 98%, 0.486);
+}
+.location:hover{
+    color: #f8f9fa;
+}

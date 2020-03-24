@@ -1,0 +1,26 @@
+<ng-container *ngIf="{
+  food: food$ | async,
+  team: team$ | async
+} as data;">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div *ngIf="!data.food; else food">
+          Loading food...
+        </div>
+        <ng-template #food>
+          <app-food *ngFor="let foodItem of data.food" [foodItem]="foodItem"></app-food>
+          <div *ngIf="data.food.length === 0">No food found!</div>
+        </ng-template>
+      </div>
+      <div class="col-6">
+        <div *ngIf="!data.team; else team">
+          Loading team...
+        </div>
+        <ng-template #team>
+          <app-team [team]="team"></app-team>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>
