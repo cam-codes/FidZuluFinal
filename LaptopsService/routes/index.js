@@ -4,9 +4,10 @@ const createError = require('http-errors');
 const team = require('../modules/team');
 const laptops = require('../modules/laptops');
 const url = require('url');
+const fs = require('fs');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
@@ -43,7 +44,25 @@ router.get('/laptops/all/:location', (request, response, next) => {
     response.setHeader('content-type', 'application/json');
     response.end(JSON.stringify(result));
   }
+
+});
+
+router.post('/laptops/add', function (request, response) {
+  console.log('in add');
   
+  fs.readFile('./data/laptops.json', function (err, data) {
+    var object = request.body;
+    object = JSON.stringify(object);
+    object = JSON.parse(object);
+    var json = JSON.parse(data);
+    json.push(object);
+
+    fs.writeFile('./data/laptops.json', JSON.stringify(json), function (err) {
+      if (err) return console.log(err);
+    });
+  });
+  
+  response.send("Success!");
 });
 
 module.exports = router;
