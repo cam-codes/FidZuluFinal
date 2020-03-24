@@ -20,13 +20,13 @@ const fs = require('fs');
     };
 
     exports.getPrice = function(location) {
-        let price;
+        //let price;
         let json = JSON.parse(read_json_file());
-        let box_of_prices = [];
+        //let box_of_prices = [];
         let tax = exports.getTax(location);
         for (let x = 0; x < json.length; x++) {
-            price = (json[x].price)*(tax+1)
-            box_of_prices.push(price);
+            json[x].price = ((json[x].price)*(tax+1)).toFixed(2);
+            //box_of_prices.push(price);
         }
         return json;
     };

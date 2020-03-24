@@ -25,13 +25,13 @@ exports.getTax = function(location) {
 
 exports.calculatePrice = function(location) {     
     let json = JSON.parse(read_json_file_food());   
-    let price;  
+    //let price;  
     let tax = exports.getTax(location);  
-    let priceList = [];                      
+    //let priceList = [];                      
     for (let i = 0; i < json.length; i++) { 
-        price = json[i].price;   
-        price *= (1+tax);
-        priceList.push(price);
+        //price = json[i].price;   
+        json[i].price = (json[i].price * (1+tax)).toFixed(2);
+        //priceList.push(price);
     } 
     return json;
 }; 
