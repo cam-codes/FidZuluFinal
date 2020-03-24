@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
   if (Object.keys(param_getter).length==0) {
     console.log("no params found");
     res.setHeader('content-type', 'application/json');
-    res.end(JSON.stringify(team.list()));
+    const obj = team.list()[0];
+    res.end(JSON.stringify(obj));
   }
 
 });

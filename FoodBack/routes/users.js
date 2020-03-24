@@ -12,7 +12,8 @@ router.get('/team', (request, response, next) => {
     console.log('got into contacts');   
     if (Object.keys(get_params).length == 0) {     
         console.log('no params');     
-        response.setHeader('content-type', 'application/json');     
-        response.end(JSON.stringify(team.list()));  
+        response.setHeader('content-type', 'application/json');  
+        const obj = team.list()[0];  // get first JSON in array 
+        response.end(JSON.stringify(obj));  
      }
 }); 

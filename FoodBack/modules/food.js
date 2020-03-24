@@ -33,5 +33,5 @@ exports.calculatePrice = function(location) {
         price *= (1+tax);
         priceList.push(price);
     } 
-    return priceList;
+    return json;
 }; 

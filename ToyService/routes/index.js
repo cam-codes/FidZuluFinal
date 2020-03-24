@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'ToyService' });
 });
 
-router.get('/toyservice/all/:location', (request, response, next) => {
+router.get('/toys/all/:location', (request, response, next) => {
   const location = request.params.location.toLowerCase();
   console.log('we made it into toyservice/:location' + location);
   let get_params = url.parse(request.url, true).query;
