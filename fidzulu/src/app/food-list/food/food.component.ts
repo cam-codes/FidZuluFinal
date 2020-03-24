@@ -15,4 +15,8 @@ export class FoodComponent implements OnInit {
   ngOnInit() {
   }
 
+  getKeys() {
+    return Object.keys(this.foodItem);
+  }
+
 }

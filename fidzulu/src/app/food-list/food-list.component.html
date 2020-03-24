@@ -14,11 +14,11 @@
         </ng-template>
       </div>
       <div class="col-6">
-        <div *ngIf="!data.team; else team">
+        <div *ngIf="!data.team; else loadTeam">
           Loading team...
         </div>
-        <ng-template #team>
-          <app-team [team]="team"></app-team>
+        <ng-template #loadTeam>
+          <app-team [team]="data.team"></app-team>
         </ng-template>
       </div>
     </div>
