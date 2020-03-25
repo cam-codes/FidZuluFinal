@@ -15,8 +15,4 @@ export class BookComponent implements OnInit {
   ngOnInit() {
   }
 
-  getKeys() {
-    return Object.keys(this.book);
-  }
-
 }

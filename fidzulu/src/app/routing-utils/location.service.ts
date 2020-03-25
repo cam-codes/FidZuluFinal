@@ -13,6 +13,7 @@ export class LocationService {
   constructor() { }
 
   changeLocation(location: string) {
+    console.log("Sending location: " + location);
     this.locationSubject.next(location);
   }
 }

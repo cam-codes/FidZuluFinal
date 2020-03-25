@@ -15,8 +15,4 @@ export class TeamComponent implements OnInit {
   ngOnInit() {
   }
 
-  getKeys() {
-    return Object.keys(this.team);
-  }
-
 }

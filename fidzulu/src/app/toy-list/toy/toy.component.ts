@@ -15,8 +15,4 @@ export class ToyComponent implements OnInit {
   ngOnInit() {
   }
 
-  getKeys() {
-    return Object.keys(this.toy);
-  }
-
 }

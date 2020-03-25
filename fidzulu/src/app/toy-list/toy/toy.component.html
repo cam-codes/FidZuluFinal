@@ -1,5 +1,5 @@
 <ul class="list-group">
   <li  class="list-group-item">
-    <p *ngFor="let key of getKeys()" >{{key | titlecase}}: {{toy[key]}}</p>
+    <p *ngFor="let key of Object.keys(toy)" >{{key | titlecase}}: {{toy[key]}}</p>
   </li>
 </ul>

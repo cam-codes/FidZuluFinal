@@ -1,4 +1,4 @@
 <ul class="list-group">
   <li  class="list-group-item">
-    <p *ngFor="let key of getKeys()" >{{key | titlecase}}: {{dvd[key]}}</p>
+    <p *ngFor="let key of Object.keys(dvd)" >{{key | titlecase}}: {{dvd[key]}}</p>
   </li></ul>

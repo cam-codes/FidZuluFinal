@@ -1,35 +1,26 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BikeService } from './bike.service';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Bike } from '../models/bike';
 import { Team } from '../models/team';
-import { LocationService } from '../routing-utils/location.service';
 
 @Component({
   selector: 'app-bike-list',
   templateUrl: './bike-list.component.html',
   styleUrls: ['./bike-list.component.css']
 })
-export class BikeListComponent implements OnInit, OnDestroy {
+export class BikeListComponent implements OnInit {
 
-  private sub = new Subscription();
-  
   bikes$: Observable<Bike[]>;
   team$: Observable<Team>;
 
   constructor(
-    private bikeService: BikeService,
-    private locationService: LocationService
+    private bikeService: BikeService
   ) { }
 
   ngOnInit() {
-    this.sub.add(this.locationService.location$.subscribe(location => {
-      this.bikes$ = this.bikeService.getBikes();
-      this.team$ = this.bikeService.getTeam();
-    }));
+    this.bikes$ = this.bikeService.getBikes();
+    this.team$ = this.bikeService.getTeam();
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
 }

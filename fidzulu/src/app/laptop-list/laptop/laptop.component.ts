@@ -15,8 +15,4 @@ export class LaptopComponent implements OnInit {
   ngOnInit() {
   }
 
-  getKeys() {
-    return Object.keys(this.laptop);
-  }
-
 }

@@ -15,8 +15,4 @@ export class DvdComponent implements OnInit {
   ngOnInit() {
   }
 
-  getKeys() {
-    return Object.keys(this.dvd);
-  }
-
 }

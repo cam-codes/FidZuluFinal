@@ -15,8 +15,4 @@ export class BikeComponent implements OnInit {
   ngOnInit() {
   }
 
-  getKeys() {
-    return Object.keys(this.bike);
-  }
-
 }
